@@ -1,13 +1,25 @@
+import { connect } from 'dva';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import styles from './index.less';
 import { formatMessage } from 'umi-plugin-locale';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
-function BasicLayout(props) {
+const BasicLayout = props => {
+  const { list, dispatch } = props
+  const { isCollapsed } = list;
+  const handleCollapseSwitch = collapsed => {
+    console.log('collapsed', collapsed)
+    dispatch({
+      type: 'list/switchMenus',
+      payload: {
+        isCollapsed: collapsed,
+      },
+    });
+  };
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider collapsible collapsed={true}>
+      <Sider collapsible collapsed={isCollapsed} onCollapse={handleCollapseSwitch}>
         <div className={styles.logo} />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1">Option 1</Menu.Item>
@@ -31,10 +43,7 @@ function BasicLayout(props) {
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
           </Breadcrumb>
-          <div
-            className={styles.siteLayoutBackground}
-            style={{ padding: 24, minHeight: 360 }}
-          >
+          <div className={styles.siteLayoutBackground} style={{ padding: 24, minHeight: 360 }}>
             {props.children}
           </div>
         </Content>
@@ -42,6 +51,9 @@ function BasicLayout(props) {
       </Layout>
     </Layout>
   );
-}
+};
 
-export default BasicLayout;
+
+export default connect(({ list }) => ({
+  list,
+}))(BasicLayout);
