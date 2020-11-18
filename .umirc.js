@@ -17,7 +17,7 @@ export default {
       antd: true,
       dva: true,
       dynamicImport: { webpackChunkName: true },
-      title: 'vxi_qa_automation',
+      title: 'VXI QA Automation',
       dll: true,
       locale: {
         enable: true,
