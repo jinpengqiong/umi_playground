@@ -54,7 +54,7 @@ const request = extend({
   credentials: 'include', // 默认请求是否带上cookie
   headers: {
     'Content-Type': 'application/json',
-    Authorization:
+    'Authorization':
       '12345678vsdvsdvsdvsd',
   },
 });

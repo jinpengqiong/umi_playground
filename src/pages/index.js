@@ -3,7 +3,7 @@ import styles from './index.less';
 import { formatMessage } from 'umi-plugin-locale';
 
 const ListPage = ({ list, dispatch }) => {
-  return <div>{list.hithere}</div>;
+  return <div>{String(list.isCollapsed)}</div>;
 };
 
 export default connect(({ list }) => ({
