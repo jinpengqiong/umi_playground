@@ -1,4 +1,6 @@
 {
+  "name": "VXI QA Automation",
+  "version": "4.3.0",
   "private": true,
   "scripts": {
     "start": "umi dev",
@@ -9,6 +11,7 @@
     "UI": "UMI_UI=1 umi dev"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.3.0",
     "antd": "^4.8.4",
     "dva": "^2.6.0-beta.6",
     "react": "^16.8.6",
