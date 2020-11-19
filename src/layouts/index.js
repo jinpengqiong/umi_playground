@@ -28,20 +28,21 @@ const BasicLayout = props => {
         <div className={logoStyle}>{isCollapsed ? '' : 'VXI QA Automation'}</div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Option 1
+            List
           </Menu.Item>
-          <SubMenu key="sub1" title="User" icon={<UserOutlined />}>
-            <Menu.Item key="3">Tom</Menu.Item>
-            <Menu.Item key="4">Bill</Menu.Item>
-            <Menu.Item key="5">Alex</Menu.Item>
-          </SubMenu>
-          <SubMenu key="sub2" title="Team" icon={<TeamOutlined />}>
+          <Menu.Item key="2" icon={<PieChartOutlined />}>
+            Details
+          </Menu.Item>
+          {/* <SubMenu key="sub1" title="User" icon={<UserOutlined />}>
+            <Menu.Item key="3">Details</Menu.Item>
+          </SubMenu> */}
+          {/* <SubMenu key="sub2" title="Team" icon={<TeamOutlined />}>
             <Menu.Item key="6">Team 1</Menu.Item>
             <Menu.Item key="8">Team 2</Menu.Item>
-          </SubMenu>
-          <Menu.Item key="9" icon={<FileOutlined />}>
-            Files
-          </Menu.Item>
+          </SubMenu> */}
+          {/* <Menu.Item key="9" icon={<FileOutlined />}>
+            Details
+          </Menu.Item> */}
         </Menu>
       </Sider>
       <Layout className={styles.siteLayout}>
@@ -51,7 +52,10 @@ const BasicLayout = props => {
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
           </Breadcrumb>
-          <div className={styles.siteLayoutContentBackground} style={{ padding: 24, minHeight: 360 }}>
+          <div
+            className={styles.siteLayoutContentBackground}
+            style={{ padding: 24, minHeight: 360 }}
+          >
             {props.children}
           </div>
         </Content>
