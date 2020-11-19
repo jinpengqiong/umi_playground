@@ -2,7 +2,6 @@ import { connect } from 'dva';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import styles from './index.less';
 import {
-  DesktopOutlined,
   PieChartOutlined,
   FileOutlined,
   TeamOutlined,
@@ -22,11 +21,11 @@ const BasicLayout = props => {
       },
     });
   };
-
+  const logoStyle = isCollapsed ? styles.logo_collapsed : styles.logo;
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={isCollapsed} onCollapse={handleCollapseSwitch}>
-        <div className={styles.logo}>{isCollapsed? '': "VXI QA Automation"}</div>
+        <div className={logoStyle}>{isCollapsed ? '' : 'VXI QA Automation'}</div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
             Option 1
@@ -46,13 +45,13 @@ const BasicLayout = props => {
         </Menu>
       </Sider>
       <Layout className={styles.siteLayout}>
-        <Header className={styles.siteLayoutBackground} style={{ padding: 0 }} />
+        <Header className={styles.siteLayoutHeaderBackground} style={{ padding: 0 }} />
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
           </Breadcrumb>
-          <div className={styles.siteLayoutBackground} style={{ padding: 24, minHeight: 360 }}>
+          <div className={styles.siteLayoutContentBackground} style={{ padding: 24, minHeight: 360 }}>
             {props.children}
           </div>
         </Content>

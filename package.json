@@ -1,6 +1,4 @@
 {
-  "name": "VXI QA Automation",
-  "version": "4.3.0",
   "private": true,
   "scripts": {
     "start": "umi dev",
