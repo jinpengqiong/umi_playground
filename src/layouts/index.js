@@ -1,14 +1,14 @@
 import { connect } from 'dva';
+import router from 'umi/router';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import styles from './index.less';
 import {
   PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+const { routerRedux } = router;
+// const { SubMenu } = Menu;
 
 const BasicLayout = props => {
   const { list, dispatch } = props
@@ -21,6 +21,13 @@ const BasicLayout = props => {
       },
     });
   };
+  const handleMenuClick = ({ item, key, keyPath, domEvent }) => {
+    // console.log('key', key);
+    // dispatch(routerRedux.push({
+    //   pathname: key,
+    // }))
+    router.push(key);
+  };
   const logoStyle = isCollapsed ? styles.logo_collapsed : styles.logo;
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -28,14 +35,14 @@ const BasicLayout = props => {
         collapsible
         collapsed={isCollapsed}
         onCollapse={handleCollapseSwitch}
-        // collapsedWidth={60}
+        // collapsedWidth={50}
       >
         <div className={logoStyle}>{isCollapsed ? '' : 'VXI QA Automation'}</div>
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          <Menu.Item key="1" icon={<PieChartOutlined />}>
+        <Menu theme="dark" defaultSelectedKeys={['/']} mode="inline" onClick={handleMenuClick}>
+          <Menu.Item key="/" icon={<PieChartOutlined />}>
             List
           </Menu.Item>
-          <Menu.Item key="2" icon={<PieChartOutlined />}>
+          <Menu.Item key="/details" icon={<UserOutlined />}>
             Details
           </Menu.Item>
           {/* <SubMenu key="sub1" title="User" icon={<UserOutlined />}>
