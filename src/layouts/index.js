@@ -1,5 +1,4 @@
 import { connect } from 'dva';
-import router from 'umi/router';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import styles from './index.less';
 import {
@@ -7,11 +6,10 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 const { Header, Content, Footer, Sider } = Layout;
-const { routerRedux } = router;
 // const { SubMenu } = Menu;
 
 const BasicLayout = props => {
-  const { list, dispatch } = props
+  const { list, dispatch, history } = props;
   const { isCollapsed } = list;
   const handleCollapseSwitch = collapsed => {
     dispatch({
@@ -26,7 +24,7 @@ const BasicLayout = props => {
     // dispatch(routerRedux.push({
     //   pathname: key,
     // }))
-    router.push(key);
+    history.push(key);
   };
   const logoStyle = isCollapsed ? styles.logo_collapsed : styles.logo;
   return (

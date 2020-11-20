@@ -1,7 +1,7 @@
 import { connect } from 'dva';
 import ProCard from '@ant-design/pro-card';
-import { Row, Col, Button, Tooltip } from 'antd';
-import { DownloadOutlined, LeftOutlined, RightOutlined, Modal } from '@ant-design/icons';
+import { Row, Col, Button, Tooltip, Modal } from 'antd';
+import { DownloadOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import Draggable from 'react-draggable';
 
 const { Divider } = ProCard;
@@ -135,6 +135,10 @@ const DetailsPage = ({ details, dispatch }) => {
         <ProCard layout="left">Col</ProCard>
       </ProCard>
       <Modal
+        width="50%"
+        mask={false}
+        centered={false}
+        style={{ top: 400, left: 450 }}
         title={
           <div
             style={{
