@@ -1,13 +1,12 @@
 const DetailsModel = {
   namespace: 'details',
   state: {
-    sumData: ['111111dsadad'],
-    audioData:[]
+    sumData: [],
+    modalVisible: false,
+    modalDraggableDisabled: true,
   },
   effects: {
-    *getSumData({ payload }, { call, put, select }) {
-
-    },
+    *getSumData({ payload }, { call, put, select }) {},
   },
   reducers: {
     updateState(state, { payload }) {
