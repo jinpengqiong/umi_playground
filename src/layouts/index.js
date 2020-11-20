@@ -24,7 +24,12 @@ const BasicLayout = props => {
   const logoStyle = isCollapsed ? styles.logo_collapsed : styles.logo;
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider collapsible collapsed={isCollapsed} onCollapse={handleCollapseSwitch}>
+      <Sider
+        collapsible
+        collapsed={isCollapsed}
+        onCollapse={handleCollapseSwitch}
+        // collapsedWidth={60}
+      >
         <div className={logoStyle}>{isCollapsed ? '' : 'VXI QA Automation'}</div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
