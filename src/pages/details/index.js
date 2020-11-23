@@ -1,9 +1,9 @@
+import { ModalComponent} from '../../components/modal';
 import { connect } from 'dva';
 import ProCard from '@ant-design/pro-card';
 import { Row, Col, Button, Tooltip, Modal } from 'antd';
 import { DownloadOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
-import Draggable from 'react-draggable';
-
+import styles from './index.less'
 const { Divider } = ProCard;
 // import styles from './index.less';
 // import { formatMessage } from 'umi-plugin-locale';
@@ -17,8 +17,9 @@ const DetailsPage = ({ details, dispatch }) => {
         modalVisible: false,
       },
     });
-  }
+  };
   const handleCancel = e => {
+    console.log('e', e);
     dispatch({
       type: 'details/updateState',
       payload: {
@@ -33,7 +34,8 @@ const DetailsPage = ({ details, dispatch }) => {
         modalVisible: true,
       },
     });
-  }
+  };
+  const modalProps = { modalVisible, dispatch };
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -134,9 +136,11 @@ const DetailsPage = ({ details, dispatch }) => {
       <ProCard style={{ marginTop: 8 }} gutter={8} title="Recording">
         <ProCard layout="left">Col</ProCard>
       </ProCard>
-      <Modal
+      {/* <Modal
         width="50%"
         mask={false}
+        maskClosable={false}
+        maskStyle={{ height: 0, width: 0 }}
         centered={false}
         style={{ top: 400, left: 450 }}
         title={
@@ -177,7 +181,9 @@ const DetailsPage = ({ details, dispatch }) => {
         <p>
           Just don&apos;t learn physics at school and your life will be full of magic and miracles.
         </p>
-      </Modal>
+      </Modal> */}
+
+      <ModalComponent {...modalProps} />
     </>
   );
 };
