@@ -41,14 +41,15 @@ export const ModalComponent = (props) => {
       // onDrag={handleDrag}
       // onStop={handleStop}
     >
-      <div className={containerStyle + ' handle'}>
+      <div className={containerStyle}>
         <br />
-        <Row>
-          <Col span={8} offset={1}>
-            <h2>Score</h2>
+        <Row className={styles.modalTitle + ' handle'}>
+          <Col span={23}>
+            <h2>&nbsp;&nbsp;&nbsp;&nbsp;Score</h2>
           </Col>
-          <Col span={1} offset={14}>
-            <CloseOutlined className={styles.cross} onClick={handleCancel} />
+          <Col span={1}>
+            <CloseOutlined className={styles.cross} onClick={handleCancel} /> &nbsp;&nbsp;
+            &nbsp;&nbsp;
           </Col>
         </Row>
         <div className={styles.divider} />
