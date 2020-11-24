@@ -21,34 +21,50 @@ export const TranscriptComponent = props => {
     {
       title: 'Agent',
       timestamp: 10,
+      description:
+        'djasldjlasjdklajsldkjaskljdlkasjdlkjaskldjkasjdklasjkldjaskldjkasjdkasjdklajsdlkjasldjasjdlasjdlas'
     },
     {
       title: 'Caller',
       timestamp: 20,
+      description:
+        'djasldjlasjdklajsldkjaskljdlkasjdlkjaskldjkasjdklasjkldjaskldjkasjdkasjdklajsdlkjasldjasjdlasjdlas'
     },
     {
       title: 'Agent',
       timestamp: 35,
+      description:
+        'djasldjlasjdklajsldkjaskljdlkasjdlkjaskldjkasjdklasjkldjaskldjkasjdkasjdklajsdlkjasldjasjdlasjdlas'
     },
     {
       title: 'Caller',
       timestamp: 40,
+      description:
+        'djasldjlasjdklajsldkjaskljdlkasjdlkjaskldjkasjdklasjkldjaskldjkasjdkasjdklajsdlkjasldjasjdlasjdlas'
     },
     {
       title: 'Agent',
       timestamp: 45,
+      description:
+        'djasldjlasjdklajsldkjaskljdlkasjdlkjaskldjkasjdklasjkldjaskldjkasjdkasjdklajsdlkjasldjasjdlasjdlas'
     },
     {
       title: 'Caller',
       timestamp: 48,
+      description:
+        'djasldjlasjdklajsldkjaskljdlkasjdlkjaskldjkasjdklasjkldjaskldjkasjdkasjdklajsdlkjasldjasjdlasjdlas'
     },
     {
       title: 'Agent',
       timestamp: 50,
+      description:
+        'djasldjlasjdklajsldkjaskljdlkasjdlkjaskldjkasjdklasjkldjaskldjkasjdkasjdklajsdlkjasldjasjdlasjdlas',
     },
     {
       title: 'Caller',
       timestamp: 60,
+      description:
+        'djasldjlasjdklajsldkjaskljdlkasjdlkjaskldjkasjdklasjkldjaskldjkasjdkasjdklajsdlkjasldjasjdlasjdlas',
     },
   ];
   return (
@@ -78,13 +94,13 @@ export const TranscriptComponent = props => {
                   avatar={<SmileTwoTone style={{ fontSize: '30px' }} />}
                   title={
                     <>
-                      <a href="https://ant.design">{item.title}</a>&nbsp;&nbsp;&nbsp;
+                      {item.title}&nbsp;&nbsp;&nbsp;
                       <a style={{ color: '#1890ff' }} onClick={() => play(item.timestamp)}>
                         {'00.' + item.timestamp}
                       </a>
                     </>
                   }
-                  description="djasldjlasjdklajsldkjaskljdlkasjdlkjaskldjkasjdklasjkldjaskldjkasjdkasjdklajsdlkjasldjasjdlasjdlas"
+                  description={item.description}
                 />
               </List.Item>
             )}
