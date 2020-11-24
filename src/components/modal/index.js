@@ -20,14 +20,20 @@ export const ModalComponent = (props) => {
   //   console.log('handleStop Event: ', e);
   //   console.log('handleStop Data: ', data);
   // };
-  const handleCancel = () => {
+  const closeModal = () => {
     dispatch({
       type: 'details/updateState',
       payload: {
-        modalVisible: false
+        modalVisible: false,
       },
     });
   }
+  const handleCancel = () => {
+    closeModal()
+  }
+  const handleClick = type => {
+    closeModal();
+  };
   const containerStyle = modalVisible ? styles.modalContainer : styles.modalContainerHidden;
   return (
     <Draggable
@@ -58,9 +64,18 @@ export const ModalComponent = (props) => {
         </Row>
         <div className={styles.divider} />
         <div className={styles.modalFooter}>
-          <Button type="primary">Cancel</Button>&nbsp;&nbsp;
-          <Button type="primary">Save As PDF</Button>&nbsp;&nbsp;
-          <Button type="primary">Submit</Button>&nbsp;&nbsp;
+          <Button type="primary" onClick={() => handleClick('cancel')}>
+            Cancel
+          </Button>
+          &nbsp;&nbsp;
+          <Button type="primary" onClick={() => handleClick('save')}>
+            Save As PDF
+          </Button>
+          &nbsp;&nbsp;
+          <Button type="primary" onClick={() => handleClick('submit')}>
+            Submit
+          </Button>
+          &nbsp;&nbsp;
         </div>
       </div>
     </Draggable>
