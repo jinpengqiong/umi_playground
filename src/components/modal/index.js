@@ -7,7 +7,6 @@ import styles from './index.less'
 export const ModalComponent = (props) => {
   console.log('props', props)
   const { dispatch, modalVisible } = props;
-  console.log('styles.modalContainer', styles.modalContainer)
   // const handleStart = (e, data) => {
   //   console.log('handleStart Event: ', e);
   //   console.log('handleStart Data: ', data);
