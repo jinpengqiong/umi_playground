@@ -1,4 +1,5 @@
-import { ModalComponent} from '../../components/modal';
+import { ModalComponent } from '../../components/modal';
+import { TranscriptComponent } from './transcript';
 import { connect } from 'dva';
 import ProCard from '@ant-design/pro-card';
 import { Row, Col, Button, Tooltip, Modal } from 'antd';
@@ -36,6 +37,7 @@ const DetailsPage = ({ details, dispatch }) => {
     });
   };
   const modalProps = { modalVisible, dispatch };
+  const transcriptProps = { ...details, dispatch }
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -133,56 +135,11 @@ const DetailsPage = ({ details, dispatch }) => {
           Col
         </ProCard>
       </ProCard>
-      <ProCard style={{ marginTop: 8 }} gutter={8} title="Recording">
-        <ProCard layout="left">Col</ProCard>
+      <ProCard style={{ marginTop: 8 }} gutter={8} title="">
+        <ProCard layout="left" style={{ height: '43vh', overflow:'scroll' }}>
+          <TranscriptComponent {...transcriptProps} />
+        </ProCard>
       </ProCard>
-      {/* <Modal
-        width="50%"
-        mask={false}
-        maskClosable={false}
-        maskStyle={{ height: 0, width: 0 }}
-        centered={false}
-        style={{ top: 400, left: 450 }}
-        title={
-          <div
-            style={{
-              width: '100%',
-              cursor: 'move',
-            }}
-            onMouseOver={() => {
-              if (modalDraggableDisabled) {
-                dispatch({
-                  type: 'details/updateState',
-                  payload: {
-                    modalDraggableDisabled: false,
-                  },
-                });
-              }
-            }}
-            onMouseOut={() => {
-              dispatch({
-                type: 'details/updateState',
-                payload: {
-                  modalDraggableDisabled: true,
-                },
-              });
-            }}
-            onFocus={() => {}}
-            onBlur={() => {}}
-          >
-            Draggable Modal
-          </div>
-        }
-        visible={modalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        modalRender={modal => <Draggable disabled={modalDraggableDisabled}>{modal}</Draggable>}
-      >
-        <p>
-          Just don&apos;t learn physics at school and your life will be full of magic and miracles.
-        </p>
-      </Modal> */}
-
       <ModalComponent {...modalProps} />
     </>
   );

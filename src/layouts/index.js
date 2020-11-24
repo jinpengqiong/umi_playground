@@ -58,13 +58,13 @@ const BasicLayout = props => {
       <Layout className={styles.siteLayout}>
         <Header className={styles.siteLayoutHeaderBackground} style={{ padding: 0 }} />
         <Content style={{ margin: '0 16px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
+          <Breadcrumb style={{ margin: '10px 0' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
           </Breadcrumb>
           <div
             className={styles.siteLayoutContentBackground}
-            style={{ padding: 24, minHeight: 360 }}
+            style={{ padding: 10, minHeight: 360 }}
           >
             {props.children}
           </div>

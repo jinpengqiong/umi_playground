@@ -5,7 +5,6 @@ import Draggable from 'react-draggable';
 import styles from './index.less'
 
 export const ModalComponent = (props) => {
-  console.log('props', props)
   const { dispatch, modalVisible } = props;
   // const handleStart = (e, data) => {
   //   console.log('handleStart Event: ', e);
@@ -65,6 +64,10 @@ export const ModalComponent = (props) => {
         <div className={styles.modalFooter}>
           <Button type="primary" onClick={() => handleClick('cancel')}>
             Cancel
+          </Button>
+          &nbsp;&nbsp;
+          <Button type="primary" onClick={() => handleClick('saveForLater')}>
+            Save for Later
           </Button>
           &nbsp;&nbsp;
           <Button type="primary" onClick={() => handleClick('save')}>
