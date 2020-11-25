@@ -1,9 +1,8 @@
 const DetailsModel = {
   namespace: 'details',
   state: {
-    sumData: [],
-    modalVisible: false,
-    modalDraggableDisabled: true,
+    summaryData: [],
+    modalVisible: false
   },
   effects: {
     *getSumData({ payload }, { call, put, select }) {},
