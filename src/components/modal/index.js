@@ -1,6 +1,7 @@
 import { Row, Col, Divider, Button } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import Draggable from 'react-draggable';
+import ScoreForm from '../scoreForm'
 
 import styles from './index.less'
 
@@ -58,7 +59,9 @@ export const ModalComponent = (props) => {
         </Row>
         <div className={styles.divider} />
         <Row className={styles.modalContent}>
-          <Col>Content</Col>
+          <Col>
+            <ScoreForm />
+          </Col>
         </Row>
         <div className={styles.divider} />
         <div className={styles.modalFooter}>
