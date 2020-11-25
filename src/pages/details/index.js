@@ -49,7 +49,7 @@ const DetailsPage = ({ details, dispatch }) => {
         </div>
       </div>
       <br />
-      <ProCard style={{ marginTop: 8, minHeight: '40vh' }} gutter={8}>
+      <ProCard style={{ marginTop: 8, minHeight: '30vh' }} gutter={8}>
         <ProCard colSpan={{ xs: 5, sm: 6, md: 6, lg: 6, xl: 6 }} layout="left">
           <Row>
             <Col span={24}>
