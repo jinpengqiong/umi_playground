@@ -36,7 +36,13 @@ const BasicLayout = props => {
         // collapsedWidth={50}
       >
         <div className={logoStyle}>{isCollapsed ? '' : 'VXI QA Automation'}</div>
-        <Menu theme="dark" defaultSelectedKeys={['/']} mode="inline" onClick={handleMenuClick}>
+        <Menu
+          theme="dark"
+          defaultSelectedKeys={['/']}
+          selectedKeys={[history.location.pathname]}
+          mode="inline"
+          onClick={handleMenuClick}
+        >
           <Menu.Item key="/" icon={<PieChartOutlined />}>
             List
           </Menu.Item>
