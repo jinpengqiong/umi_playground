@@ -1,9 +1,9 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import { Table, Tooltip, Select, Row, Col, Input } from 'antd';
+import { Table, Tooltip, Select, Row, Col, Input, Form} from 'antd';
 import { FileProtectOutlined } from '@ant-design/icons';
 
-import styles from './index.less'
+// import styles from './index.less'
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -11,7 +11,7 @@ const { Option } = Select;
 const ScoreForm = () => {
   const columns = [{
     title: 'No',
-    dataIndex: 'number',
+    dataIndex: 'audioId',
     align: 'center',
     width: '40px'
   }, {
@@ -32,15 +32,15 @@ const ScoreForm = () => {
         return (
             <>
                 <Select defaultValue={text} bordered={false}>
-                    <Option value="Yes">Yes</Option>
-                    <Option value="No">No</Option>
+                    <Option value="yes">Yes</Option>
+                    <Option value="no">No</Option>
                 </Select>
             </>
         )
       }
   }, {
       title: 'Coaching Notes',
-      dataIndex: 'coaching',
+      dataIndex: 'coachingNotes',
       align: 'center',
       render: (text) => {
           return (
@@ -49,7 +49,7 @@ const ScoreForm = () => {
       }
   }, {
       title: 'YES',
-      dataIndex: 'yes',
+      dataIndex: 'YES',
       align: 'center',
       render: (text, record) => {
           const title = (
@@ -66,7 +66,7 @@ const ScoreForm = () => {
       }
   }, {
       title: 'NO',
-      dataIndex: 'no',
+      dataIndex: 'NO',
       align: 'center',
       render: (text, record) => {
         const title = (
@@ -83,20 +83,32 @@ const ScoreForm = () => {
     }
   }, {
       title: 'Weights',
-      dataIndex: 'weights',
+      dataIndex: 'Weights',
       align: 'center'
   }];
   const products = [
     {
-      key: '1',
-      number: '1',
+      id: 1,
+      key: 1,
+      audioId: '1',
       lineItems: 'Warmly Welcome. Greet your customerIntroduce yourself by name and ask for theirs too',
-      score: 'Yes',
-      coaching: 'default value',
-      yes: '- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)',
-      no: '- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)',
+      score: 'yes',
+      coachingNotes: 'default value',
+      YES: '- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)',
+      NO: '- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)',
       weights: 4
-    }
+    },
+    {
+      id:2,
+      key: 2,
+      audioId:2,
+      lineItems:'Warmly Welcome. Greet your customer- Introduce yourself by name and ask for theirs too',
+      score:'no',
+      coachingNotes:'< = 1000 characters',
+      YES:'test',
+      NO:'test',
+      Weights:'3',
+  }
   ];
   return (
       <>
