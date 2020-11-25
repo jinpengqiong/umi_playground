@@ -7,7 +7,7 @@ export const ChartComponent = props => {
   useEffect(() => {
     const ctx = document.getElementById('myChart')?.getContext('2d');
     const myChart =  new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
       datasets: [
