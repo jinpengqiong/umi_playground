@@ -30,12 +30,15 @@ const ScoreForm = () => {
       align: 'center',
       render: (text) => {
         return (
-            <>
-                <Select defaultValue={text} bordered={false}>
+          <Form.Item
+            name="score"
+            initialValue={text}
+          >
+            <Select bordered={false}>
                     <Option value="yes">Yes</Option>
                     <Option value="no">No</Option>
                 </Select>
-            </>
+          </Form.Item>
         )
       }
   }, {
@@ -44,7 +47,13 @@ const ScoreForm = () => {
       align: 'center',
       render: (text) => {
           return (
-            <TextArea placeholder="'< = 1000 characters" defaultValue={text} autoSize={{minRows: 4, maxRows: 6 }} bordered={false} />
+            <Form.Item
+              name="username"
+              initialValue={text}
+            >
+              <TextArea placeholder="'< = 1000 characters"  autoSize={{minRows: 4, maxRows: 6 }} bordered={false} />
+            </Form.Item>
+            
           )
       }
   }, {
@@ -92,23 +101,23 @@ const ScoreForm = () => {
       key: 1,
       audioId: '1',
       lineItems: 'Warmly Welcome. Greet your customerIntroduce yourself by name and ask for theirs too',
-      score: 'yes',
+      score: 'no',
       coachingNotes: 'default value',
       YES: '- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)',
       NO: '- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)',
       weights: 4
     },
-    {
-      id:2,
-      key: 2,
-      audioId:2,
-      lineItems:'Warmly Welcome. Greet your customer- Introduce yourself by name and ask for theirs too',
-      score:'no',
-      coachingNotes:'< = 1000 characters',
-      YES:'test',
-      NO:'test',
-      Weights:'3',
-  }
+    // {
+    //   id:2,
+    //   key: 2,
+    //   audioId:2,
+    //   lineItems:'Warmly Welcome. Greet your customer- Introduce yourself by name and ask for theirs too',
+    //   score:'no',
+    //   coachingNotes:'< = 1000 characters',
+    //   YES:'test',
+    //   NO:'test',
+    //   Weights:'3',
+    // }
   ];
   return (
       <>
