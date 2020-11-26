@@ -1,4 +1,4 @@
-import { Row, Col, Divider, Button } from 'antd';
+import { Row, Col, Divider, Button, Form } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import Draggable from 'react-draggable';
 import ScoreForm from '../scoreForm'
@@ -33,6 +33,16 @@ export const ModalComponent = (props) => {
   const handleClick = type => {
     closeModal();
   };
+
+  const onFinish = values => {
+    console.log('Success:', values);
+    closeModal();
+  };
+
+  const onFinishFailed = errorInfo => {
+    console.log('Failed:', errorInfo);
+  };
+
   const containerStyle = modalVisible ? styles.modalContainer : styles.modalContainerHidden;
   return (
     <Draggable
@@ -58,30 +68,39 @@ export const ModalComponent = (props) => {
           </Col>
         </Row>
         <div className={styles.divider} />
-        <Row className={styles.modalContent}>
-          <Col>
-            <ScoreForm />
-          </Col>
-        </Row>
-        <div className={styles.divider} />
-        <div className={styles.modalFooter}>
-          <Button type="primary" onClick={() => handleClick('cancel')}>
-            Cancel
-          </Button>
-          &nbsp;&nbsp;
-          <Button type="primary" onClick={() => handleClick('saveForLater')}>
-            Save for Later
-          </Button>
-          &nbsp;&nbsp;
-          <Button type="primary" onClick={() => handleClick('save')}>
-            Save As PDF
-          </Button>
-          &nbsp;&nbsp;
-          <Button type="primary" onClick={() => handleClick('submit')}>
-            Submit
-          </Button>
-          &nbsp;&nbsp;
-        </div>
+        <Form
+          name="score"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+        >
+          <Row className={styles.modalContent}>
+            <Col>
+              <ScoreForm />
+            </Col>
+          </Row>
+          <div className={styles.divider} />
+          <div className={styles.modalFooter}>
+            <Form.Item>
+              <Button type="primary" onClick={() => handleClick('cancel')}>
+                Cancel
+              </Button>
+              &nbsp;&nbsp;
+              <Button type="primary" onClick={() => handleClick('saveForLater')}>
+                Save for Later
+              </Button>
+              &nbsp;&nbsp;
+              <Button type="primary" onClick={() => handleClick('save')}>
+                Save As PDF
+              </Button>
+              &nbsp;&nbsp;
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
+              &nbsp;&nbsp;
+              </Form.Item>
+          </div>
+        </Form>
       </div>
     </Draggable>
   );
