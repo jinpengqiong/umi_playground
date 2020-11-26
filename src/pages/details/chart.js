@@ -56,38 +56,25 @@ export const ChartComponent = props => {
         ],
       },
       options: {
-        responsive: true,
-        title: {
-          display: true,
-          text: 'Chart.js Line Chart',
-        },
-        tooltips: {
-          mode: 'index',
-          intersect: false,
-        },
-        hover: {
-          mode: 'nearest',
-          intersect: true,
-        },
         scales: {
           xAxes: [
             {
               display: false,
-              scaleLabel: {
-                display: true,
-                labelString: 'Month',
-              },
             },
           ],
           yAxes: [
             {
               display: true,
-              scaleLabel: {
-                display: true,
-                labelString: 'Value',
-              },
             },
           ],
+        },
+        legend: {
+          display: true,
+        },
+        title: {
+          text: 'Call Sentiment over time',
+          display: true,
+          position: 'bottom',
         },
       },
     });
@@ -95,8 +82,6 @@ export const ChartComponent = props => {
   }, [])
 
   return (
-    <div>
-      <canvas id="myChart" width='500' height="400"></canvas>
-    </div>
+      <canvas id="myChart" width='200' height="100"></canvas>
   );
 };

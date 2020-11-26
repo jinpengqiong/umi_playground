@@ -46,16 +46,10 @@ export const ModalComponent = (props) => {
       // onStop={handleStop}
     >
       <div className={containerStyle}>
-        <br />
-        <Row className={styles.modalTitle + ' handle'}>
-          <Col span={23}>
-            <h2>&nbsp;&nbsp;&nbsp;&nbsp;Score</h2>
-          </Col>
-          <Col span={1}>
-            <CloseOutlined className={styles.cross} onClick={handleCancel} /> &nbsp;&nbsp;
-            &nbsp;&nbsp;
-          </Col>
-        </Row>
+        <div className={styles.modalTitle + ' handle'}>
+          <h2>&nbsp;&nbsp;&nbsp;&nbsp;Score</h2>
+          <CloseOutlined className={styles.cross} onClick={handleCancel} />
+        </div>
         <div className={styles.divider} />
         <Row className={styles.modalContent}>
           <Col>Content</Col>
