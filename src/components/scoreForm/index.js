@@ -28,10 +28,10 @@ const ScoreForm = () => {
       title: 'Score',
       dataIndex: 'score',
       align: 'center',
-      render: (text) => {
+      render: (text, record) => {
         return (
           <Form.Item
-            name="score"
+            name={[`scoring-${record.key}`, 'score']}
             initialValue={text}
           >
             <Select bordered={false}>
@@ -45,10 +45,10 @@ const ScoreForm = () => {
       title: 'Coaching Notes',
       dataIndex: 'coachingNotes',
       align: 'center',
-      render: (text) => {
+      render: (text, record) => {
           return (
             <Form.Item
-              name="username"
+              name={[`scoring-${record.key}`, 'coachingNotes']}
               initialValue={text}
             >
               <TextArea placeholder="'< = 1000 characters"  autoSize={{minRows: 4, maxRows: 6 }} bordered={false} />
@@ -99,25 +99,36 @@ const ScoreForm = () => {
     {
       id: 1,
       key: 1,
-      audioId: '1',
+      audioId: 1,
       lineItems: 'Warmly Welcome. Greet your customerIntroduce yourself by name and ask for theirs too',
-      score: 'no',
+      score: 'yes',
       coachingNotes: 'default value',
       YES: '- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)',
       NO: '- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)',
       weights: 4
     },
-    // {
-    //   id:2,
-    //   key: 2,
-    //   audioId:2,
-    //   lineItems:'Warmly Welcome. Greet your customer- Introduce yourself by name and ask for theirs too',
-    //   score:'no',
-    //   coachingNotes:'< = 1000 characters',
-    //   YES:'test',
-    //   NO:'test',
-    //   Weights:'3',
-    // }
+    {
+      id:2,
+      key: 2,
+      audioId:2,
+      lineItems:'Warmly Welcome. Greet your customer- Introduce yourself by name and ask for theirs too',
+      score:'no',
+      coachingNotes:'< = 1000 characters',
+      YES:'test',
+      NO:'test',
+      Weights:'3',
+    },
+    {
+      id:3,
+      key: 3,
+      audioId:3,
+      lineItems:'Warmly Welcome. Greet your customer- Introduce yourself by name and ask for theirs too',
+      score:'yes',
+      coachingNotes:'three',
+      YES:'test',
+      NO:'test',
+      Weights:'3',
+    }
   ];
   return (
       <>
