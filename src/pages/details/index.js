@@ -3,10 +3,8 @@ import { TranscriptComponent } from './transcript';
 import { SummaryPage } from './summary';
 import { connect } from 'dva';
 import ProCard from '@ant-design/pro-card';
-import { Row, Col, Button, Tooltip, Modal } from 'antd';
+import { Button, Tooltip } from 'antd';
 import { DownloadOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
-import styles from './index.less'
-const { Divider } = ProCard;
 // import styles from './index.less';
 // import { formatMessage } from 'umi-plugin-locale';
 

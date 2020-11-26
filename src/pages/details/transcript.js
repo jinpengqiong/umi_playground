@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Row, Col, List, Avatar, Button } from 'antd';
+import { List } from 'antd';
 import { SmileTwoTone } from '@ant-design/icons';
 import styles from './index.less';
 
