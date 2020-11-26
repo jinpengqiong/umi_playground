@@ -58,7 +58,7 @@ export const ModalComponent = (props) => {
     >
       <div className={containerStyle}>
         <div className={styles.modalTitle + ' handle'}>
-          <h2>&nbsp;&nbsp;&nbsp;&nbsp;Score</h2>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;Score</span>
           <CloseOutlined className={styles.cross} onClick={handleCancel} />
         </div>
         <div className={styles.divider} />

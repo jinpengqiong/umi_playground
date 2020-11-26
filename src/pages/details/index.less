@@ -14,3 +14,29 @@ span.pii {
     color: #666;
     font-style: oblique;
 }
+
+.sectionHeader{
+  position: relative;
+  .scoreBox{
+    position: absolute;
+    width: 180px;
+    height: 8vh;
+    background-color:rgba(153, 102, 255, 1);
+    border-radius: 20px;
+    right: 0px;
+    bottom: -48px;
+    z-index: 100;
+    line-height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title{
+      font-size: 16px;
+      margin-left: 6px;
+    }
+    .result{
+      font-size: 16px;
+      margin-right: 6px;
+    }
+  }
+}

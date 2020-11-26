@@ -68,7 +68,13 @@ export const TranscriptComponent = props => {
   return (
     <div>
       <div>
-        <h2>Recording</h2>
+        <div className={styles.sectionHeader}>
+          <h2>Recording</h2>
+          <div className={styles.scoreBox}>
+            <span className={styles.title}>Overall Score</span>
+            <span className={styles.result}>46</span>
+          </div>
+        </div>
         <br />
         <audio
           id="myAudio"
