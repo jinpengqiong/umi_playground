@@ -36,7 +36,7 @@ export const ModalComponent = (props) => {
 
   const onFinish = values => {
     console.log('Success:', values);
-    closeModal();
+    // closeModal();
   };
 
   const onFinishFailed = errorInfo => {

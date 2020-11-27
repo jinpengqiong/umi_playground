@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score</title>
+    <style type="text/css">
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+        }
+        body {
+            margin: 0;
+            color: rgba(0, 0, 0, 0.85);
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+            font-variant: tabular-nums;
+            line-height: 1.5715;
+            background-color: #fff;
+            font-feature-settings: 'tnum';
+            padding: 20px 40px;
+        }
+        .clearfix::before {
+            display: table;
+            content: '';
+        }
+        .clearfix::after {
+            display: table;
+            clear: both;
+            content: '';
+        }
+        .fl {
+            float: left;
+        }
+        .column-1 {
+            color: #888;
+            width: 100px;
+        }
+        .column-2 {
+            width: 40%;
+        }
+        .score-table {
+            width: 100%; 
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+        .score-table td {
+            text-align: center;
+            padding: 5px 10px;
+        }
+        .score-table td p {
+            text-align: left;
+            display: inline-block;
+        }
+        .score-table thead th {
+            color: #fff;
+            background: #aaa;
+            font-weight: normal;
+            font-size: 16px;
+            padding: 15px 0;
+        }
+        .score-table tbody tr:nth-child(even) {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="clearfix">
+        <div class="fl column-1">Over All Score: </div>
+        <div class="fl column-2">50</div>
+        <div class="fl column-1">Agent Name: </div>
+        <div class="fl column-4">Emma Green</div>
+    </div>
+    <div class="clearfix">
+        <div class="fl column-1">QA Name: </div>
+        <div class="fl column-2">Steven Ortiz</div>
+        <div class="fl column-1">Date of Score: </div>
+        <div class="fl column-4">2019/10/1</div>
+    </div>
+    <table class="score-table">
+        <thead>
+            <tr>
+                <th style="min-width: 50px;">No</th>
+                <th>Line items</th>
+                <th style="min-width: 80px;">Score</th>
+                <th style="min-width: 300px;">Coaching Notes</th>
+                <th>YES</th>
+                <th>NO</th>
+                <th style="min-width: 100px;">Weights</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <p>Warmly Welcome. Greet your customerIntroduce yourself by name and ask for theirs too</p>
+                </td>
+                <td>No</td>
+                <td> 
+                    <p>
+                        &lt; = 1000 characters
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        - complete suggested spiel (Thank you, Premier support, how to assist, speaking with)
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        - complete suggested spiel (Thank you, Premier support, how to assist, speaking with)
+                    </p>
+                </td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    <p>Warmly Welcome. Greet your customerIntroduce yourself by name and ask for theirs too</p>
+                </td>
+                <td>No</td>
+                <td> 
+                    <p>
+                        &lt; = 1000 characters
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        - complete suggested spiel (Thank you, Premier support, how to assist, speaking with)
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        - complete suggested spiel (Thank you, Premier support, how to assist, speaking with)
+                    </p>
+                </td>
+                <td>3</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
