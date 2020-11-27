@@ -82,6 +82,6 @@ export const ChartComponent = props => {
   }, [])
 
   return (
-      <canvas id="myChart" width='200' height="100"></canvas>
+      <canvas id="myChart" width='200' height="80"></canvas>
   );
 };
