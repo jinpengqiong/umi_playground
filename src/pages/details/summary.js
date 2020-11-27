@@ -43,7 +43,6 @@ export const SummaryPage = props => {
           </Col>
         </Row>
       </ProCard>
-      <Divider />
       <ProCard colSpan={{ xs: 5, sm: 6, md: 6, lg: 6, xl: 6 }} layout="left">
         <Row>
           <Col span={24}>
@@ -94,7 +93,6 @@ export const SummaryPage = props => {
           <Col span={14}>96.7%</Col>
         </Row>
       </ProCard>
-      <Divider />
       <ProCard colSpan={{ xs: 14, sm: 12, md: 12, lg: 12, xl: 12 }} layout="center">
         <ChartComponent />
       </ProCard>
