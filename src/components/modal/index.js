@@ -77,6 +77,7 @@ export const ModalComponent = (props) => {
               <ScoreForm />
             </Col>
           </Row>
+          <br/>
           <div className={styles.divider} />
           <div className={styles.modalFooter}>
             <Form.Item>
