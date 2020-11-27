@@ -24,11 +24,27 @@ const DetailsPage = ({ details, dispatch }) => {
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div>
-          <Button type="primary" shape="round" icon={<DownloadOutlined />}>
+          <Button
+            type="primary"
+            shape="round"
+            icon={<DownloadOutlined />}
+            style={{
+              backgroundColor: 'rgba(255, 99, 132, 1)',
+              borderColor: 'rgba(255, 99, 132, 1)',
+            }}
+          >
             Agent
           </Button>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <Button type="primary" shape="round" icon={<DownloadOutlined />}>
+          <Button
+            type="primary"
+            shape="round"
+            icon={<DownloadOutlined />}
+            style={{
+              backgroundColor: 'rgba(54, 162, 235, 1)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+            }}
+          >
             Caller
           </Button>
         </div>
