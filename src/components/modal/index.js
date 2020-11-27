@@ -69,7 +69,7 @@ export const ModalComponent = (props) => {
         </div>
         <div className={styles.divider} />
         <Form
-          name="score"
+          name="scoreForm"
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}

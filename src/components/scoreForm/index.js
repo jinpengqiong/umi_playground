@@ -3,7 +3,7 @@ import React from 'react';
 import { Table, Tooltip, Select, Row, Col, Input, Form} from 'antd';
 import { FileProtectOutlined } from '@ant-design/icons';
 
-// import styles from './index.less'
+import styles from './index.less'
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -21,7 +21,7 @@ const ScoreForm = () => {
     width: '20%',
     render: (text) => {
       return (
-        <div>{text}</div>
+        <div className={styles.lineItems}>{text}</div>
       );
     }
   }, {
@@ -31,7 +31,7 @@ const ScoreForm = () => {
       render: (text, record) => {
         return (
           <Form.Item
-            name={[`scoring-${record.key}`, 'score']}
+            name={[`${record.key}`, 'score']}
             initialValue={text}
           >
             <Select bordered={false}>
@@ -48,8 +48,14 @@ const ScoreForm = () => {
       render: (text, record) => {
           return (
             <Form.Item
-              name={[`scoring-${record.key}`, 'coachingNotes']}
+              name={[`${record.key}`, 'coachingNotes']}
               initialValue={text}
+              rules={[
+                {
+                  required: true,
+                  message: '',
+                },
+              ]}
             >
               <TextArea placeholder="'< = 1000 characters"  autoSize={{minRows: 4, maxRows: 6 }} bordered={false} />
             </Form.Item>
@@ -113,7 +119,7 @@ const ScoreForm = () => {
       audioId:2,
       lineItems:'Warmly Welcome. Greet your customer- Introduce yourself by name and ask for theirs too',
       score:'no',
-      coachingNotes:'< = 1000 characters',
+      coachingNotes:'',
       YES:'test',
       NO:'test',
       Weights:'3',
@@ -132,7 +138,7 @@ const ScoreForm = () => {
   ];
   return (
       <>
-        <Row style={{ paddingLeft: 15 }} gutter={[0, 10]}>
+        <Row style={{ paddingLeft: 15, paddingTop: 15 }} gutter={[0, 10]}>
             <Col span={4}>Over All Score:</Col>
             <Col span={7}>50</Col>
             <Col span={4}>Agent Name:</Col>
