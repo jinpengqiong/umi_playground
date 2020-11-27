@@ -9,7 +9,7 @@ import { DownloadOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons
 // import { formatMessage } from 'umi-plugin-locale';
 
 const DetailsPage = ({ details, dispatch }) => {
-  const { modalVisible } = details;
+  const { modalVisible, summaryData } = details;
   const openModal = () => {
     dispatch({
       type: 'details/updateState',

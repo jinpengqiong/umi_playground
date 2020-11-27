@@ -1,3 +1,4 @@
+import {fakeAccountLogin} from '../services/api'
 const DetailsModel = {
   namespace: 'details',
   state: {
@@ -5,7 +6,15 @@ const DetailsModel = {
     modalVisible: false
   },
   effects: {
-    *getSumData({ payload }, { call, put, select }) {},
+    *getSumData({ payload }, { call, put, select }) {
+      const data = yield call(fakeAccountLogin)
+      yield put({
+        type: 'updateState',
+        payload: {
+          summaryData: data
+        }
+      })
+    },
   },
   reducers: {
     updateState(state, { payload }) {

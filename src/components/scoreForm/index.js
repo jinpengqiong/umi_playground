@@ -13,12 +13,12 @@ const ScoreForm = () => {
     title: 'No',
     dataIndex: 'audioId',
     align: 'center',
-    width: '40px'
+    width: '10%'
   }, {
     title: 'Line items',
     dataIndex: 'lineItems',
     align: 'center',
-    width: '100px',
+    width: '20%',
     render: (text) => {
       return (
         <div>{text}</div>
@@ -53,7 +53,7 @@ const ScoreForm = () => {
             >
               <TextArea placeholder="'< = 1000 characters"  autoSize={{minRows: 4, maxRows: 6 }} bordered={false} />
             </Form.Item>
-            
+
           )
       }
   }, {
@@ -150,7 +150,7 @@ const ScoreForm = () => {
         columns={columns}
         />
       </>
-    
+
   );
 };
 

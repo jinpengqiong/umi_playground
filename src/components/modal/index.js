@@ -36,7 +36,11 @@ export const ModalComponent = (props) => {
 
   const onFinish = values => {
     console.log('Success:', values);
-    // closeModal();
+    closeModal();
+    dispatch({
+      type: 'details/getSumData',
+      payload: {},
+    });
   };
 
   const onFinishFailed = errorInfo => {
