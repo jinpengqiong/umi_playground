@@ -11,43 +11,47 @@
   -webkit-box-shadow:0px 0px 12px #333333;
   box-shadow:0px 0px 12px #333333;
   border-radius: 1em;
+    .modalTitleWrapper{
+    .modalTitle{
+      font-size: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 7vh;
+    }
+    .cross {
+      font-size: 28px;
+      color: #ccc;
+      padding-right: 4%;
+      :hover {
+        color: black;
+        cursor: pointer;
+      }
+    }
+    :hover{
+      cursor: move;
+    }
+  }
+
+  .modalContent{
+    height: 68vh;
+    overflow: scroll;
+  }
+  .divider{
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+  .modalFooter{
+    height: 8vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }
 
 .modalContainerHidden {
   display: none;
 }
 
-.cross {
-  font-size: 28px;
-  color: #ccc;
-  padding-right: 4%;
-  :hover {
-    color: black;
-  }
-}
 
-.modalTitle{
-  font-size: 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 7vh;
-  :hover{
-    cursor: move;
-  }
-}
 
-.modalContent{
-  height: 68vh;
-  overflow: scroll;
-}
-.divider{
-  width: 100%;
-  border-bottom: 1px solid #ccc;
-}
-.modalFooter{
-  height: 8vh;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}

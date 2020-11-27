@@ -61,9 +61,11 @@ export const ModalComponent = (props) => {
       // onStop={handleStop}
     >
       <div className={containerStyle}>
-        <div className={styles.modalTitle + ' handle'}>
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;Score</span>
-          <CloseOutlined className={styles.cross} onClick={handleCancel} />
+        <div className={styles.modalTitleWrapper}>
+          <div className={styles.modalTitle + ' handle'}>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;Score</span>
+            <CloseOutlined className={styles.cross} onClick={handleCancel} />
+          </div>
         </div>
         <div className={styles.divider} />
         <Form
@@ -77,7 +79,7 @@ export const ModalComponent = (props) => {
               <ScoreForm />
             </Col>
           </Row>
-          <br/>
+          <br />
           <div className={styles.divider} />
           <div className={styles.modalFooter}>
             <Form.Item>
@@ -97,7 +99,7 @@ export const ModalComponent = (props) => {
                 Submit
               </Button>
               &nbsp;&nbsp;
-              </Form.Item>
+            </Form.Item>
           </div>
         </Form>
       </div>
