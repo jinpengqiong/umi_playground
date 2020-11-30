@@ -20,10 +20,6 @@ const BasicLayout = props => {
     });
   };
   const handleMenuClick = ({ item, key, keyPath, domEvent }) => {
-    // console.log('key', key);
-    // dispatch(routerRedux.push({
-    //   pathname: key,
-    // }))
     history.push(key);
   };
   const logoStyle = isCollapsed ? styles.logo_collapsed : styles.logo;
@@ -44,11 +40,14 @@ const BasicLayout = props => {
           onClick={handleMenuClick}
         >
           <Menu.Item key="/" icon={<PieChartOutlined />}>
-            List
+            Call Analytics list
           </Menu.Item>
-          <Menu.Item key="/details" icon={<UserOutlined />}>
-            Details
-          </Menu.Item>
+          {history.location.pathname === '/details' && (
+            <Menu.Item key="/details" icon={<UserOutlined />}>
+              Details
+            </Menu.Item>
+          )}
+
           {/* <SubMenu key="sub1" title="User" icon={<UserOutlined />}>
             <Menu.Item key="3">Details</Menu.Item>
           </SubMenu> */}
@@ -65,8 +64,17 @@ const BasicLayout = props => {
         <Header className={styles.siteLayoutHeaderBackground} style={{ padding: 0 }} />
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '10px 0' }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            {history.location.pathname === '/' ? (
+              <div/>
+            ) : (
+              history.location.pathname.split('/').filter(i => i).map(item => {
+                return (
+                  <Breadcrumb.Item href={'/' + item}>
+                    {item === '' ? 'Call Analytics list' : item}
+                  </Breadcrumb.Item>
+                );
+              })
+            )}
           </Breadcrumb>
           <div
             className={styles.siteLayoutContentBackground}

@@ -64,7 +64,6 @@ export const ChartComponent = props => {
         },
       },
     });
-    console.log('ctx', ctx)
   }, [])
 
   return (
