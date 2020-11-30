@@ -1,7 +1,8 @@
 const ListModel = {
   namespace: 'list',
   state: {
-    isCollapsed: true
+    isCollapsed: true,
+    formData: { langCode: 'en-US', dataRange: [], roleType: 'Agent' },
   },
   effects: {
     *switchMenus({ payload }, { call, put, select }) {
@@ -9,9 +10,9 @@ const ListModel = {
       yield put({
         type: 'updateState',
         payload: {
-          isCollapsed
-        }
-      })
+          isCollapsed,
+        },
+      });
     },
   },
   reducers: {

@@ -7,13 +7,13 @@ const DetailsModel = {
   },
   effects: {
     *getSumData({ payload }, { call, put, select }) {
-      const data = yield call(fakeAccountLogin)
+      const data = yield call(fakeAccountLogin);
       yield put({
         type: 'updateState',
         payload: {
-          summaryData: data
-        }
-      })
+          summaryData: data,
+        },
+      });
     },
   },
   reducers: {
