@@ -31,10 +31,21 @@ const ScoreForm = () => {
       render: (text, record) => {
         return (
           <Form.Item
-            name={[`${record.key}`, 'score']}
-            initialValue={text}
+            name={[`${record.id}`, 'score']}
+            initialValue={text ? text : undefined}
+            noStyle
+            rules={[
+              {
+                required: true,
+                message: '',
+              },
+            ]}
           >
-            <Select bordered={false}>
+            <Select 
+              bordered={false} 
+              placeholder="-Select-"
+              getPopupContainer={triggerNode => triggerNode.parentNode}
+            >
                     <Option value="yes">Yes</Option>
                     <Option value="no">No</Option>
                 </Select>
@@ -48,14 +59,8 @@ const ScoreForm = () => {
       render: (text, record) => {
           return (
             <Form.Item
-              name={[`${record.key}`, 'coachingNotes']}
+              name={[`${record.id}`, 'coachingNotes']}
               initialValue={text}
-              rules={[
-                {
-                  required: true,
-                  message: '',
-                },
-              ]}
             >
               <TextArea placeholder="'< = 1000 characters"  autoSize={{minRows: 4, maxRows: 6 }} bordered={false} />
             </Form.Item>
@@ -70,13 +75,22 @@ const ScoreForm = () => {
           const title = (
             <div>
               <p>{text}</p>
-              <p>{text}</p>
             </div>
           );
           return (
-            <Tooltip placement="topLeft" title={title} arrowPointAtCenter>
-                <FileProtectOutlined />
-            </Tooltip>
+            // <div className={styles.toolWarp}>
+              <Tooltip 
+                placement="bottom" 
+                title={title} 
+                arrowPointAtCenter
+                autoAdjustOverflow={false}
+                overlayClassName={styles.toolTip}
+                getPopupContainer={triggerNode => triggerNode.parentNode}
+              >
+                  <FileProtectOutlined />
+              </Tooltip>
+            // </div>
+            
           )
       }
   }, {
@@ -91,7 +105,13 @@ const ScoreForm = () => {
             </div>
         );
         return (
-          <Tooltip placement="topLeft" title={text} arrowPointAtCenter>
+          <Tooltip 
+                placement="bottom" 
+                title={title} 
+                arrowPointAtCenter
+                overlayClassName={styles.toolTip}
+                getPopupContainer={triggerNode => triggerNode.parentNode}
+              >
               <FileProtectOutlined />
           </Tooltip>
         )
@@ -103,33 +123,33 @@ const ScoreForm = () => {
   }];
   const products = [
     {
-      id: 1,
+      id: 11,
       key: 1,
       audioId: 1,
       lineItems: 'Warmly Welcome. Greet your customerIntroduce yourself by name and ask for theirs too',
       score: 'yes',
       coachingNotes: 'default value',
-      YES: '- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)',
+      YES: "\"Required: <br />- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)\r\n- enthusiastic tone\r\n- asked for customer's name\r\n-introduced name\r\n-greeting was on time\r\n\r\nCoaching Point: \r\n- Did not ask to call customer by first name to properly address\r\n- greeting was delivered after 3-5 seconds\"\r\n\r\n\r\n",
       NO: '- complete suggested spiel (Thank you, Premier support, how to assist, speaking with)',
       weights: 4
     },
     {
-      id:2,
+      id:21,
       key: 2,
       audioId:2,
       lineItems:'Warmly Welcome. Greet your customer- Introduce yourself by name and ask for theirs too',
-      score:'no',
+      score:'',
       coachingNotes:'',
       YES:'test',
       NO:'test',
       Weights:'3',
     },
     {
-      id:3,
+      id:31,
       key: 3,
       audioId:3,
       lineItems:'Warmly Welcome. Greet your customer- Introduce yourself by name and ask for theirs too',
-      score:'yes',
+      score:'',
       coachingNotes:'three',
       YES:'test',
       NO:'test',

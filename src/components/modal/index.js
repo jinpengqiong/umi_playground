@@ -2,6 +2,7 @@ import { Row, Col, Divider, Button, Form } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import Draggable from 'react-draggable';
 import ScoreForm from '../scoreForm'
+import React, { useRef } from 'react';
 
 import styles from './index.less'
 
@@ -19,6 +20,9 @@ export const ModalComponent = (props) => {
   //   console.log('handleStop Event: ', e);
   //   console.log('handleStop Data: ', data);
   // };
+
+  const [form] = Form.useForm();
+
   const closeModal = () => {
     dispatch({
       type: 'details/updateState',
@@ -30,17 +34,41 @@ export const ModalComponent = (props) => {
   const handleCancel = () => {
     closeModal()
   }
-  const handleClick = type => {
+
+  const handleData = (values, type) => {
+    let sorceList = Object.keys(values).map(key => {
+      let scoreId = {id: key}
+      let item = values[key];
+      let person = { ...scoreId, ...item }
+      return person
+    })
+    let parameters;
+    if (type) {
+      parameters = {
+        isSubmit: true,
+        sorceList: sorceList
+      }
+    } else {
+      parameters = {
+        isSubmit: false,
+        sorceList: sorceList
+      }
+    }
+    console.log(parameters)
+    // dispatch({
+    //   type: 'details/getSumData',
+    //   payload: parameters,
+    // });
+  }
+
+  const handleClick = () => {
+    handleData(form.getFieldsValue(), false)
     closeModal();
   };
 
   const onFinish = values => {
-    console.log('Success:', values);
+    handleData(values, true);
     closeModal();
-    dispatch({
-      type: 'details/getSumData',
-      payload: {},
-    });
   };
 
   const onFinishFailed = errorInfo => {
@@ -69,6 +97,7 @@ export const ModalComponent = (props) => {
         </div>
         <div className={styles.divider} />
         <Form
+          form={form}
           name="scoreForm"
           initialValues={{ remember: true }}
           onFinish={onFinish}
