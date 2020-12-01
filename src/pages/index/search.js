@@ -16,6 +16,8 @@ export const SearchComponent = props => {
 
   };
   const handleSelectChange = value => {};
+  const formInfo = getFieldsValue()
+  console.log('formInfo', formInfo)
   return (
     <div>
       <div className={styles.searchSection}>
@@ -30,15 +32,16 @@ export const SearchComponent = props => {
           <Row gutter={24}>
             <Col span={10} key="1">
               <Form.Item
-                name="Language Code"
+                name="LangCode"
                 label="Language Code"
+                initialValues="en-US"
                 rules={[
                   {
                     required: true,
                   },
                 ]}
               >
-                <Select defaultValue="en-US" style={{ width: 120 }} onChange={handleSelectChange}>
+                <Select style={{ width: 120 }} onChange={handleSelectChange}>
                   <Option value="en-US">en-US</Option>
                   <Option value="cn-CH">cn-CH</Option>
                 </Select>
@@ -46,7 +49,7 @@ export const SearchComponent = props => {
             </Col>
             <Col span={10} key="2">
               <Form.Item
-                name="Date range"
+                name="DateRange"
                 label="Date range"
                 rules={[
                   {
@@ -61,8 +64,9 @@ export const SearchComponent = props => {
           <Row gutter={24}>
             <Col span={10} key="1">
               <Form.Item
-                name="Sentiment"
-                label={'Sentiment'}
+                // name="sentiment"
+                label="Sentiment"
+                initialValues="Caller"
                 rules={[
                   {
                     required: true,
@@ -70,40 +74,46 @@ export const SearchComponent = props => {
                 ]}
               >
                 <div>
-                  <Radio.Group
-                  // onChange={onRadioChange}
-                  // value="Agent"
-                  >
-                    <Radio value="Agent" key="Agent">
-                      Agent
-                    </Radio>
-                    <Radio value="Caller" key="Caller">
-                      Caller
-                    </Radio>
-                  </Radio.Group>
+                  <Form.Item name="roleType">
+                    <Radio.Group
+                    // onChange={onRadioChange}
+                    // value="Agent"
+                    >
+                      <Radio value="Agent" key="Agent">
+                        Agent
+                      </Radio>
+                      <Radio value="Caller" key="Caller">
+                        Caller
+                      </Radio>
+                    </Radio.Group>
+                  </Form.Item>
                   <Row className={styles.lineItemStyle}>
                     <Col>
-                      <Select
-                        defaultValue="average"
-                        style={{ width: 120 }}
-                        onChange={handleSelectChange}
-                      >
-                        <Option value="average">average</Option>
-                        <Option value="trend">trend</Option>
-                      </Select>
+                      <Form.Item name="condition" initialValues="trend">
+                        <Select
+                          defaultValue="average"
+                          style={{ width: 120 }}
+                          onChange={handleSelectChange}
+                        >
+                          <Option value="average">average</Option>
+                          <Option value="trend">trend</Option>
+                        </Select>
+                      </Form.Item>
                     </Col>
                     <Col>
                       <span className={styles.words}>is</span>
                     </Col>
                     <Col>
-                      <Select
-                        defaultValue="positive"
-                        style={{ width: 120 }}
-                        onChange={handleSelectChange}
-                      >
-                        <Option value="positive">positive</Option>
-                        <Option value="negative">negative</Option>
-                      </Select>
+                      <Form.Item name="status" initialValues="negative">
+                        <Select
+                          defaultValue="positive"
+                          style={{ width: 120 }}
+                          onChange={handleSelectChange}
+                        >
+                          <Option value="positive">positive</Option>
+                          <Option value="negative">negative</Option>
+                        </Select>
+                      </Form.Item>
                     </Col>
                   </Row>
                 </div>
@@ -113,6 +123,7 @@ export const SearchComponent = props => {
               <Form.Item
                 name="Entities"
                 label="Entities"
+                initialValues="city_county"
                 rules={[
                   {
                     required: true,
@@ -126,8 +137,8 @@ export const SearchComponent = props => {
                   onChange={handleSelectChange}
                 >
                   <Option value="U.P">U.P</Option>
-                  <Option value="Century Lake">Century Lake</Option>
-                  <Option value="City County">City County</Option>
+                  <Option value="century_lake">Century Lake</Option>
+                  <Option value="city_county">City County</Option>
                 </Select>
               </Form.Item>
             </Col>
