@@ -15,9 +15,33 @@ export const SearchComponent = props => {
   const onFinish = values => {
 
   };
-  const handleSelectChange = value => {};
+  const handleSelectChange = (value,type) => {
+    switch (type) {
+      case 'LangCode':
+        formData.LangCode = value;
+        break;
+      case 'dataRange':
+        formData.dataRange = value;
+        break;
+      case 'roleType':
+        formData.roleType = value;
+        break;
+      case 'roleCalcMethod':
+        formData.roleCalcMethod = value;
+        break;
+      case 'roleStatus':
+        formData.roleStatus = value;
+        break;
+      case 'entities':
+        formData.entities = value;
+        break;
+    }
+  };
   const formInfo = getFieldsValue()
   console.log('formInfo', formInfo)
+  const handleSubmit = () => {
+    console.log('formData', formData)
+  }
   return (
     <div>
       <div className={styles.searchSection}>
@@ -34,14 +58,17 @@ export const SearchComponent = props => {
               <Form.Item
                 name="LangCode"
                 label="Language Code"
-                initialValues="en-US"
+                initialValue={formData.langCode}
                 rules={[
                   {
                     required: true,
                   },
                 ]}
               >
-                <Select style={{ width: 120 }} onChange={handleSelectChange}>
+                <Select
+                  style={{ width: 120 }}
+                  onChange={value => handleSelectChange(value, 'langCode')}
+                >
                   <Option value="en-US">en-US</Option>
                   <Option value="cn-CH">cn-CH</Option>
                 </Select>
@@ -49,24 +76,23 @@ export const SearchComponent = props => {
             </Col>
             <Col span={10} key="2">
               <Form.Item
-                name="DateRange"
+                name="dataRange"
                 label="Date range"
+                initialValue={formData.dataRange}
                 rules={[
                   {
                     required: true,
                   },
                 ]}
               >
-                <RangePicker />
+                <RangePicker onChange={value => handleSelectChange(value, 'dataRange')} />
               </Form.Item>
             </Col>
           </Row>
           <Row gutter={24}>
             <Col span={10} key="1">
               <Form.Item
-                // name="sentiment"
                 label="Sentiment"
-                initialValues="Caller"
                 rules={[
                   {
                     required: true,
@@ -74,10 +100,10 @@ export const SearchComponent = props => {
                 ]}
               >
                 <div>
-                  <Form.Item name="roleType">
+                  <Form.Item name="roleType" initialValue={formData.roleType}>
                     <Radio.Group
-                    // onChange={onRadioChange}
-                    // value="Agent"
+                      onChange={e => handleSelectChange(e.target.value, 'roleType')}
+                      // value="Agent"
                     >
                       <Radio value="Agent" key="Agent">
                         Agent
@@ -89,11 +115,10 @@ export const SearchComponent = props => {
                   </Form.Item>
                   <Row className={styles.lineItemStyle}>
                     <Col>
-                      <Form.Item name="condition" initialValues="trend">
+                      <Form.Item name="roleCalcMethod" initialValue={formData.roleCalcMethod}>
                         <Select
-                          defaultValue="average"
                           style={{ width: 120 }}
-                          onChange={handleSelectChange}
+                          onChange={value => handleSelectChange(value, 'roleCalcMethod')}
                         >
                           <Option value="average">average</Option>
                           <Option value="trend">trend</Option>
@@ -104,11 +129,10 @@ export const SearchComponent = props => {
                       <span className={styles.words}>is</span>
                     </Col>
                     <Col>
-                      <Form.Item name="status" initialValues="negative">
+                      <Form.Item name="roleStatus" initialValue={formData.roleStatus}>
                         <Select
-                          defaultValue="positive"
                           style={{ width: 120 }}
-                          onChange={handleSelectChange}
+                          onChange={value => handleSelectChange(value, 'roleStatus')}
                         >
                           <Option value="positive">positive</Option>
                           <Option value="negative">negative</Option>
@@ -121,9 +145,9 @@ export const SearchComponent = props => {
             </Col>
             <Col span={10} key="2">
               <Form.Item
-                name="Entities"
+                name="entities"
                 label="Entities"
-                initialValues="city_county"
+                initialValue={formData.entities}
                 rules={[
                   {
                     required: true,
@@ -132,9 +156,8 @@ export const SearchComponent = props => {
               >
                 <Select
                   mode="multiple"
-                  defaultValue="City County"
                   style={{ width: 256 }}
-                  onChange={handleSelectChange}
+                  onChange={value => handleSelectChange(value, 'entities')}
                 >
                   <Option value="U.P">U.P</Option>
                   <Option value="century_lake">Century Lake</Option>
@@ -143,7 +166,7 @@ export const SearchComponent = props => {
               </Form.Item>
             </Col>
             <Col span={4} style={{ textAlign: 'left' }}>
-              <Button type="primary" htmlType="submit" icon={<FilterOutlined />}>
+              <Button type="primary" icon={<FilterOutlined />} onClick={handleSubmit}>
                 Filter
               </Button>
             </Col>

@@ -1,5 +1,6 @@
 import { connect } from 'dva';
 import {SearchComponent} from './search'
+import { TableComponent } from './table';
 import { Form, Row, Col, Input, Button, Select, DatePicker, Radio } from 'antd';
 import styles from './index.less';
 const { Option } = Select;
@@ -11,6 +12,7 @@ const ListPage = ({ list, dispatch }) => {
   return (
     <div>
       <SearchComponent {...list} />
+      <TableComponent {...list} />
     </div>
   );
 };

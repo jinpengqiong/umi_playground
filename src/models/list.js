@@ -2,7 +2,14 @@ const ListModel = {
   namespace: 'list',
   state: {
     isCollapsed: true,
-    formData: { langCode: 'en-US', dataRange: [], roleType: 'Agent' },
+    formData: {
+      langCode: 'en-US',
+      dataRange: [],
+      roleType: 'Agent',
+      roleCalcMethod: 'trend',
+      roleStatus: 'negative',
+      entities: ['city_county', 'U.P'],
+    },
   },
   effects: {
     *switchMenus({ payload }, { call, put, select }) {
