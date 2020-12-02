@@ -8,86 +8,116 @@ export const TableComponent = props => {
       title: 'Job Number',
       dataIndex: 'job_number',
       defaultSortOrder: 'ascend',
-      // filters: [
-      //   {
-      //     text: 'Joe',
-      //     value: 'Joe',
-      //   },
-      //   {
-      //     text: 'Jim',
-      //     value: 'Jim',
-      //   },
-      //   {
-      //     text: 'Submenu',
-      //     value: 'Submenu',
-      //     children: [
-      //       {
-      //         text: 'Green',
-      //         value: 'Green',
-      //       },
-      //       {
-      //         text: 'Black',
-      //         value: 'Black',
-      //       },
-      //     ],
-      //   },
-      // ],
-      // // specify the condition of filtering result
-      // // here is that finding the name started with `value`
-      // onFilter: (value, record) => record.name.indexOf(value) === 0,
       sorter: (a, b) => a.key - b.key,
       sortDirections: ['descend'],
     },
     {
       title: 'Job Name',
       dataIndex: 'job_name',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.age - b.age,
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      filters: [
-        {
-          text: 'London',
-          value: 'London',
-        },
-        {
-          text: 'New York',
-          value: 'New York',
-        },
-      ],
-      filterMultiple: false,
-      onFilter: (value, record) => record.address.indexOf(value) === 0,
-      sorter: (a, b) => a.address.length - b.address.length,
-      sortDirections: ['descend', 'ascend'],
+      title: 'Timestamp',
+      dataIndex: 'timestamp',
+    },
+    {
+      title: 'Average Accuracy',
+      dataIndex: 'average_accuracy',
+    },
+    {
+      title: 'Language Code',
+      dataIndex: 'language_code',
+    },
+    {
+      title: 'Call Duration',
+      dataIndex: 'call_duration',
+    },
+    {
+      title: 'Call Type',
+      dataIndex: 'call_type',
+    },
+    {
+      title: 'QA Name',
+      dataIndex: 'qa_name',
+    },
+    {
+      title: 'Agent Name',
+      dataIndex: 'agent_name',
+    },
+    {
+      title: 'QA Supervisor Name',
+      dataIndex: 'qa_supervisor_name',
+    },
+    {
+      title: 'Overall Score',
+      dataIndex: 'overall_score',
+      fixed: 'right',
+    },
+    {
+      title: 'Action',
+      dataIndex: 'action',
+      fixed: 'right',
+      // render: (_, record) => {
+      //   const editable = isEditing(record);
+      //   return editable ? (
+      //     <span>
+      //       <a href="javascript:;" onClick={() => save(record.key)} style={{ marginRight: 8 }}>
+      //         Save
+      //       </a>
+      //       <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
+      //         <a>Cancel</a>
+      //       </Popconfirm>
+      //     </span>
+      //   ) : (
+      //     <a disabled={editingKey !== ''} onClick={() => edit(record)}>
+      //       Edit
+      //     </a>
+      //   );
+      // },
     },
   ];
 
   const data = [
     {
       key: '1',
-      job_number: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
+      job_name:'202010262354646354.mp3',
+      job_number: '1',
+      timestamp: 32,
+      average_accuracy: '96.7%',
+      language_code: 'en-US',
+      call_duration: '77:04',
+      call_type: 'sales call',
+      qa_name: 'John Brown',
+      agent_name: 'Lena Johnston',
+      qa_supervisor_name: 'Lester Anderson',
+      overall_score: '45',
     },
     {
       key: '2',
-      job_number: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
+      job_name:'202010262354646354.mp3',
+      job_number: '2',
+      timestamp: 32,
+      average_accuracy: '96.7%',
+      language_code: 'en-US',
+      call_duration: '77:04',
+      call_type: 'sales call',
+      qa_name: 'John Brown',
+      agent_name: 'Lena Johnston',
+      qa_supervisor_name: 'Lester Anderson',
+      overall_score: '45',
     },
     {
       key: '3',
-      job_number: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    },
-    {
-      key: '4',
-      job_number: 'Jim Red',
-      age: 32,
-      address: 'London No. 2 Lake Park',
+      job_name:'202010262354646354.mp3',
+      job_number: '3',
+      timestamp: 32,
+      average_accuracy: '96.7%',
+      language_code: 'en-US',
+      call_duration: '77:04',
+      call_type: 'sales call',
+      qa_name: 'John Brown',
+      agent_name: 'Lena Johnston',
+      qa_supervisor_name: 'Lester Anderson',
+      overall_score: '45',
     },
   ];
 
@@ -96,7 +126,12 @@ export const TableComponent = props => {
   }
   return (
     <div className={styles.tableContainer}>
-      <Table columns={columns} dataSource={data} onChange={handlePageChange} />
+      <Table
+        columns={columns}
+        dataSource={data}
+        onChange={handlePageChange}
+        scroll={{ x: 1000 }}
+      />
     </div>
   );
 };
